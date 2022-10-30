@@ -5,7 +5,7 @@ module.exports.verifyToken = (req, res, next) => {
     if (!token) {
       return res.status(401).json({
         status: false,
-        message: "Please Create An Account",
+        message: "Please login first",
       });
     }
 

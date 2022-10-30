@@ -60,3 +60,19 @@ module.exports.login = async (req, res, next) => {
     });
   }
 };
+
+module.exports.getMe = async (req, res, next) => {
+  try {
+    const user = await loginService(req.decoded.email);
+    res.status(200).json({
+      status: true,
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: false,
+      message: "give the token",
+      error,
+    });
+  }
+};
